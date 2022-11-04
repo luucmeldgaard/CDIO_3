@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class DiceCup {
 
-    int sides = 7;
+    int sides = 6;
     int numDies = 1;
 
     public int roll() {
