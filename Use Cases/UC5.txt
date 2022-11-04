@@ -1,1 +1,1 @@
-Use Case: Land on chancefelt, pick up card and follow the directions
+Use Case: Purchase Property

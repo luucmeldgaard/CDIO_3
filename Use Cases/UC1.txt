@@ -1,4 +1,15 @@
-Use Case: Move on board
+Use Case: Win game
 
 Scope: Junior Monopoly game
-Level: User goal
+Level: User Goal
+Primary Actor: Players
+Stakeholders and interests: Players
+Preconditions: Any player must make a move that results in them getting a negative balance
+Success Guarantee: The game ends. The player with the highest balance wins the game.
+
+Success scenario:
+    1. A player has to pay an amount in which the player doesn't have funds for.
+    2. No more turns can be made.
+    3. All players' balance is sorted from lowest to highest.
+    4. The player with the highest balance wins the game.
+
