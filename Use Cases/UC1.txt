@@ -1,0 +1,4 @@
+Use Case: Move on board
+
+Scope: Junior Monopoly game
+Level: User goal
