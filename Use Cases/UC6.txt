@@ -1,0 +1,18 @@
+Use Case: Pass start
+
+Scope: Junior Monopoly game
+Level: Sub-function
+Primary Actor: Players
+Stakeholders and interests: IOOuteractive, Players
+Preconditions: Game must be started and Players must have been defined
+Success Guarantee: Any number of players (2-4) moves independently on the board. Any player can pass start.
+                   When a player passes start, 2 million is added to their current balance.
+
+Main success scenario:
+    1. (any) player rolls dice cup.
+    2. Player moves forward on the board based on the total face value of the dice roll.
+    3. Next player rolls dice cup.
+    // All players repeat step (1) and (2) until any player reaches the field space 'Start'.
+    3. (any) Player lands on 'Start' and 2 million is added to their current balance.
+
+Frequency of occurrence: Every ~7 round
