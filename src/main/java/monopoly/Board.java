@@ -52,6 +52,6 @@ public class Board {
 
     public void update_GUI(Player player) {
         player.getCar().setPosition(this.gui.getFields()[player.getPosition()]);
-        gui.getUserButtonPressed("Press Continue to continue", "Continue");
+        gui.getUserButtonPressed("It's " + this.players.get(0).name + "'s turn", "Roll");
     }
 }
