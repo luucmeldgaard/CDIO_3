@@ -54,5 +54,4 @@ public class Board {
         player.getCar().setPosition(this.gui.getFields()[player.getPosition()]);
         gui.getUserButtonPressed("Press Continue to continue", "Continue");
     }
-
 }
