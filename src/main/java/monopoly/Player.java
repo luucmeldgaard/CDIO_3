@@ -1,8 +1,10 @@
 package monopoly;
 
+import gui_fields.GUI_Player;
+
 import java.util.ArrayList;
 
-public class Player {
+public class Player extends GUI_Player {
 
     int balance;
     int position;
@@ -10,6 +12,7 @@ public class Player {
     boolean loseCondition;
 
     public Player(String name, int balance, int position, boolean lose) {
+        super(name, 1000);
         this.name = name;
         this.balance = balance;
         this.position = position;
@@ -26,6 +29,10 @@ public class Player {
 
     public void addBalance(int add) {
         this.balance += add;
+    }
+
+    public void setPosition(int position, int add) {
+        this.position = (position + add) % 40;
     }
 
     public void setPosition(int position) {
