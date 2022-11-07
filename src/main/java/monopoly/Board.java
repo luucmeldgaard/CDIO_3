@@ -40,6 +40,7 @@ public class Board {
         DiceCup cup = new DiceCup();
         while (true) {
             for (Player player : this.players) {
+                gui.getUserButtonPressed("It's " + player.name + "'s turn", "Roll");
                 int roll = cup.roll();
                 System.out.println(roll);
                 gui.setDie(roll);
@@ -49,9 +50,7 @@ public class Board {
             }
         }
     }
-
     public void update_GUI(Player player) {
         player.getCar().setPosition(this.gui.getFields()[player.getPosition()]);
-        gui.getUserButtonPressed("It's " + player.name + "'s turn", "Roll");
     }
 }
