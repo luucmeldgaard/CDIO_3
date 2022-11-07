@@ -25,7 +25,7 @@ public class Board {
         int numPlayers = Integer.parseInt(this.gui.getUserSelection("Number of players", "1", "2", "3", "4"));
 
         for (int i = 0; i < numPlayers; i++) {
-            String name = this.gui.getUserString("Player " + i + ", please enter you name: ", 2, 12, true);
+            String name = this.gui.getUserString("Player " + (i+1) + ", please enter you name: ", 2, 12, true);
             System.out.println(name);
             this.players.add(new Player(name,1000, 0, false));
         }
