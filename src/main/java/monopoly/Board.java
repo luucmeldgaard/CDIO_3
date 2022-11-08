@@ -20,12 +20,11 @@ public class Board {
     GUI_Field field;
     Scanner scan;
 
-
+    public static int numFields = 24;
 
     public Board() {
 
-
-        String[][] fieldList = new String[24][4];
+        String[][] fieldList = new String[numFields][4];
 
         try {
             File fieldFile = new File("fields.txt");
@@ -63,19 +62,29 @@ public class Board {
 
         System.out.println(Arrays.deepToString(fieldList));
 
-        GUI_Field[] fields = new GUI_Field[16];
+        GUI_Field[] fields = new GUI_Field[numFields];
 
         for (int i = 0; i < fields.length; i++) {
             if (fieldList[i][0].equals("START")) {
                 System.out.println("START");
-                fields[i] = new GUI_Start();
+                fields[i] = new GUI_Start("START", "", "Field", Color.BLUE, Color.RED);
             }
-
+            else if (fieldList[i][0].equals("JAIL")) {
+                System.out.println("JAIL");
+                fields[i] = new GUI_Jail("default", "JAIL", "", "Field", Color.BLUE, Color.RED);
+            }
+            else if (fieldList[i][0].equals("REFUGE")) {
+                System.out.println("REFUGE");
+                fields[i] = new GUI_Refuge("default", "Antons numse", "", "Field", Color.BLUE, Color.RED);
+            }
+            else if (fieldList[i][0].equals("CHANCE")) {
+                System.out.println("CHANCE");
+                fields[i] = new GUI_Chance("Chance", "", "Field", Color.BLUE, Color.RED);
+            }
             else {
                 fields[i] = new GUI_Street(fieldList[i][0], fieldList[i][1], fieldList[i][2], fieldList[i][3], Color.BLUE, Color.RED);
             }
         }
-        //Lars Tyndskid, tekst, Et felt som er meget flot, 5000
 
         // GUI_Street [ownerName=null, bgColor=java.awt.Color[r=153,g=153,b=153], fgColor=java.awt.Color[r=0,g=0,b=0], title=<html><center>Bernstorffsvej, subText=Pris:  180, description=Bernstorffsvej]
         this.gui = new GUI(fields);

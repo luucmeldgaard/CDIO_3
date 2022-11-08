@@ -32,7 +32,7 @@ public class Player extends GUI_Player {
     }
 
     public void setPosition(int position, int add) {
-        this.position = (position + add) % 40;
+        this.position = (position + add) % Board.numFields;
     }
 
     public void setPosition(int position) {
