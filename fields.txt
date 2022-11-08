@@ -1,24 +1,24 @@
 START
-Ringormen, tekst, Et felt som er meget flot, 5000
-Lars Tyndskid, tekst, Et felt som er meget flot, 5000
+Ringormen, 1 ̶M̶, Et felt som er meget flot, 1
+Lars Tyndskid, 0.8 ̶M̶, Et felt som er meget flot, 0.8
 CHANCE
-Knasten, tekst, Et felt som er meget flot, 5000
-Minkmøllen, tekst, Et felt som er meget flot, 5000
+Knasten, 1.5 ̶M̶, Et felt som er meget flot, 1.5
+Minkmøllen, 2 ̶M̶, Et felt som er meget flot, 2
 JAIL
-Johnholm, tekst, Et felt som er meget flot, 5000
-Detvarde, tekst, Et felt som er meget flot, 5000
+Johnholm, 0.5 ̶M̶, Et felt som er meget flot, 0.5
+Detvarde, 0.3 ̶M̶, Et felt som er meget flot, 0.3
 CHANCE
-Munkestræde, tekst, Et felt som er meget flot, 5000
-Åse allé, tekst, Et felt som er meget flot, 5000
+Munkestræde, 3 ̶M̶, Et felt som er meget flot, 3
+Åse allé, 3.8 ̶M̶, Et felt som er meget flot, 3.8
 REFUGE
-Lavby, tekst, Et felt som er meget flot, 5000
-Højby, tekst, Et felt som er meget flot, 5000
+Lavby, 5 ̶M̶, Et felt som er meget flot, 5
+Højby, 0.1 ̶M̶, Et felt som er meget flot, 0.1
 CHANCE
-Mongo Havn, tekst, Et felt som er meget flot, 5000
-Mango Syd, tekst, Et felt som er meget flot, 5000
+Mongo Havn, 4.2 ̶M̶, Et felt som er meget flot, 4.2
+Mango Syd, 3.7 ̶M̶, Et felt som er meget flot, 3.7
 JAIL
-Davs Parken, tekst, Et felt som er meget flot, 5000
-Lemur Bugten, tekst, Et felt som er meget flot, 5000
+Davs Parken, 2.7 ̶M̶, Et felt som er meget flot, 2.7
+Lemurbugten, 3.1 ̶M̶, Et felt som er meget flot, 3.1
 CHANCE
-Lille Spelt, tekst, Et felt som er meget flot, 5000
-Store Spelt, tekst, Et felt som er meget flot, 5000
+Lille Spelt, 1 ̶M̶, Et felt som er meget flot, 1
+Store Spelt, 0.9 ̶M̶, Et felt som er meget flot, 0.9
