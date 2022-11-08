@@ -1,12 +1,12 @@
 package monopoly;
 
+import java.awt.*;
 import java.util.ArrayList;
 
-import gui_fields.GUI_Car;
-import gui_fields.GUI_Field;
-import gui_fields.GUI_Player;
+import gui_fields.*;
 import gui_main.GUI;
 import java.util.Scanner;
+import java.awt.Color;
 
 
 public class Board {
@@ -17,7 +17,10 @@ public class Board {
     Scanner scan;
 
     public Board() {
-        this.gui = new GUI();
+
+        GUI_Field[] fields = {new GUI_Start(), new GUI_Street("Din mor", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE)};
+        // GUI_Street [ownerName=null, bgColor=java.awt.Color[r=153,g=153,b=153], fgColor=java.awt.Color[r=0,g=0,b=0], title=<html><center>Bernstorffsvej, subText=Pris:  180, description=Bernstorffsvej]
+        this.gui = new GUI(fields);
         this.field = gui.getFields()[0];
         this.players = new ArrayList<>();
         this.scan = new Scanner(System.in);
