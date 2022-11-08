@@ -29,7 +29,7 @@ public class Board {
         int numPlayers = Integer.parseInt(this.gui.getUserSelection("Number of players", "1", "2", "3", "4"));
 
         for (int i = 0; i < numPlayers; i++) {
-            String name = this.gui.getUserString("Player " + i + ", please enter you name: ", 2, 12, true);
+            String name = this.gui.getUserString("Player " + (i+1) + ", please enter you name: ", 2, 12, true);
             System.out.println(name);
             this.players.add(new Player(name,1000, 0, false));
         }
@@ -44,6 +44,7 @@ public class Board {
         DiceCup cup = new DiceCup();
         while (true) {
             for (Player player : this.players) {
+                gui.getUserButtonPressed("It's " + player.name + "'s turn", "Roll");
                 int roll = cup.roll();
                 System.out.println(roll);
                 gui.setDie(roll);
@@ -53,9 +54,7 @@ public class Board {
             }
         }
     }
-
     public void update_GUI(Player player) {
         player.getCar().setPosition(this.gui.getFields()[player.getPosition()]);
-        gui.getUserButtonPressed("It's " + player.name + "'s turn", "Roll");
     }
 }
