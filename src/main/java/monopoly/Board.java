@@ -19,7 +19,31 @@ public class Board {
 
     public Board() {
 
-        GUI_Field[] fields = {new GUI_Start(), new GUI_Street("Din mor", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE)};
+        GUI_Field[] fields = {new GUI_Start(),
+                new GUI_Street("Ringormen", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Street("Lars Tyndskid", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Chance(),
+                new GUI_Street("Knasten", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Street("Minkmøllen", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Jail(),
+                new GUI_Street("Johnholm", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Street("Detvarde", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Chance(),
+                new GUI_Street("Munkestræde", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Street("Åse allé", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Refuge(),
+                new GUI_Street("Lavby", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Street("Højby", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Chance(),
+                new GUI_Street("Mongo Havn", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Street("Mango Syd", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Jail(),
+                new GUI_Street("Davs Parken", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Street("Lemur Bugten", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Chance(),
+                new GUI_Street("Lille Spelt", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE),
+                new GUI_Street("Store Spelt", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE)
+        };
         // GUI_Street [ownerName=null, bgColor=java.awt.Color[r=153,g=153,b=153], fgColor=java.awt.Color[r=0,g=0,b=0], title=<html><center>Bernstorffsvej, subText=Pris:  180, description=Bernstorffsvej]
         this.gui = new GUI(fields);
         this.field = gui.getFields()[0];
