@@ -70,6 +70,7 @@ public class Board {
                 System.out.println("START");
                 fields[i] = new GUI_Start();
             }
+
             else {
                 fields[i] = new GUI_Street(fieldList[i][0], fieldList[i][1], fieldList[i][2], fieldList[i][3], Color.BLUE, Color.RED);
             }
