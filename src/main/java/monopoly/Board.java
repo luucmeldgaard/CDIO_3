@@ -16,6 +16,7 @@ public class Board {
     GUI_Field field;
     Scanner scan;
 
+
     public Board() {
 
         GUI_Field[] fields = {new GUI_Start(), new GUI_Street("Din mor", "tekst", "Et felt som er meget flot", "5000", Color.RED, Color.BLUE)};
