@@ -1,26 +1,20 @@
 package monopoly;
 
-import java.awt.*;
-import java.io.File;
-import java.io.FileNotFoundException;
 import java.util.ArrayList;
 
 import gui_fields.*;
 import gui_main.GUI;
 
-import java.util.Arrays;
 import java.util.Scanner;
-import java.awt.Color;
-import java.io.IOException;
 
-public class Board {
+public class GameBoard {
 
     GUI gui;
     ArrayList<Player> players;
     GUI_Field field;
     Scanner scan;
 
-    public Board() {
+    public GameBoard() {
 
         CreateBoard board = new CreateBoard();
         this.gui = new GUI(board.setup());
