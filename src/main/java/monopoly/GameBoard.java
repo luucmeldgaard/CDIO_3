@@ -13,11 +13,12 @@ public class GameBoard {
     ArrayList<Player> players;
     GUI_Field field;
     Scanner scan;
+    Board board;
 
     public GameBoard() {
 
-        CreateBoard board = new CreateBoard();
-        this.gui = new GUI(board.setup());
+        this.board = new Board();
+        this.gui = new GUI(this.board.setup());
         this.field = gui.getFields()[0];
         this.players = new ArrayList<>();
         this.scan = new Scanner(System.in);
@@ -40,13 +41,24 @@ public class GameBoard {
         DiceCup cup = new DiceCup();
         while (true) {
             for (Player player : this.players) {
-                gui.getUserButtonPressed("It's " + player.name + "'s turn", "Roll");
-                int roll = cup.roll();
-                System.out.println(roll);
-                gui.setDie(roll);
+                if (!player.getJailedStatus()) {
+                    gui.getUserButtonPressed("It's " + player.name + "'s turn", "Roll");
+                    int roll = cup.roll();
+                    System.out.println(roll);
+                    gui.setDie(roll);
+                    System.out.println("Can't move");
+                    player.setPosition(roll, player.getPosition());
+                }
                 System.out.println(player.getCar().getPosition());
-                player.setPosition(roll, player.getPosition());
                 update_GUI(player);
+
+                // The player can choose one of following options:
+                // Buy (property), Build (property), Pick Card (chance), Continue (Refuge), Roll (jail)
+                // which will be handled by the Board class.
+                System.out.println(player.getName() + " is at: " + this.board.getField(player.getPosition()));
+                String optionField = this.board.getField(player.getPosition());
+                board.displayFieldActions(this.gui, player, optionField);
+
             }
         }
     }
