@@ -1,7 +1,9 @@
 package monopoly;
 
+
 import gui_fields.*;
 import gui_main.GUI;
+import monopoly.fieldspaces.FieldSpace;
 
 import java.awt.*;
 import java.io.File;

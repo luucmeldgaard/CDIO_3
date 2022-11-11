@@ -1,24 +1,24 @@
 START
-Ringormen, 1 ̶M̶, Et felt som er meget flot, 1
-Lars Tyndskid, 0.8 ̶M̶, Et felt som er meget flot, 0.8
+Ringormen, 1 ̶M̶, Et felt som er meget flot, 100
+Lars Tyndskid, 0.8 ̶M̶, Et felt som er meget flot, 80
 CHANCE
-Knasten, 1.5 ̶M̶, Et felt som er meget flot, 1.5
-Minkmøllen, 2 ̶M̶, Et felt som er meget flot, 2
+Knasten, 1.5 ̶M̶, Et felt som er meget flot, 150
+Minkmøllen, 2 ̶M̶, Et felt som er meget flot, 200
 JAIL
-Johnholm, 0.5 ̶M̶, Et felt som er meget flot, 0.5
-Detvarde, 0.3 ̶M̶, Et felt som er meget flot, 0.3
+Johnholm, 0.5 ̶M̶, Et felt som er meget flot, 50
+Detvarde, 0.3 ̶M̶, Et felt som er meget flot, 30
 CHANCE
-Munkestræde, 3 ̶M̶, Et felt som er meget flot, 3
-Åse allé, 3.8 ̶M̶, Et felt som er meget flot, 3.8
+Munkestræde, 3 ̶M̶, Et felt som er meget flot, 300
+Åse allé, 3.8 ̶M̶, Et felt som er meget flot, 38
 REFUGE
-Lavby, 5 ̶M̶, Et felt som er meget flot, 5
-Højby, 0.1 ̶M̶, Et felt som er meget flot, 0.1
+Lavby, 5 ̶M̶, Et felt som er meget flot, 500
+Højby, 0.1 ̶M̶, Et felt som er meget flot, 10
 CHANCE
-Mongo Havn, 4.2 ̶M̶, Et felt som er meget flot, 4.2
-Mango Syd, 3.7 ̶M̶, Et felt som er meget flot, 3.7
+Mongo Havn, 4.2 ̶M̶, Et felt som er meget flot, 420
+Mango Syd, 3.7 ̶M̶, Et felt som er meget flot, 370
 GOTOJAIL
-Davs Parken, 2.7 ̶M̶, Et felt som er meget flot, 2.7
-Lemurbugten, 3.1 ̶M̶, Et felt som er meget flot, 3.1
+Davs Parken, 2.7 ̶M̶, Et felt som er meget flot, 270
+Lemurbugten, 3.1 ̶M̶, Et felt som er meget flot, 310
 CHANCE
-Lille Spelt, 1 ̶M̶, Et felt som er meget flot, 1
-Store Spelt, 0.9 ̶M̶, Et felt som er meget flot, 0.9
+Lille Spelt, 1 ̶M̶, Et felt som er meget flot, 100
+Store Spelt, 0.9 ̶M̶, Et felt som er meget flot, 90

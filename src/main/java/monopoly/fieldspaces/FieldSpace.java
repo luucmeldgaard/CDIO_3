@@ -1,4 +1,4 @@
-package monopoly;
+package monopoly.fieldspaces;
 
 import gui_fields.GUI_Field;
 
