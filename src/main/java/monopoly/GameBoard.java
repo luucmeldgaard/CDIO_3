@@ -1,11 +1,10 @@
 package monopoly;
 
-import java.util.ArrayList;
+import java.awt.*;
+import java.util.*;
 
 import gui_fields.*;
 import gui_main.GUI;
-
-import java.util.Scanner;
 
 public class GameBoard {
 
@@ -25,11 +24,26 @@ public class GameBoard {
 
         int numPlayers = Integer.parseInt(this.gui.getUserSelection("Number of players", "2", "3", "4"));
 
+
+        String[] colorNames = new String[] {"Red", "Blue", "Green", "Pink"};
+        Color[] colorCodes = new Color[] {Color.RED, Color.BLUE, Color.GREEN, Color.MAGENTA};
+
+        Map<String, Color> colors = new HashMap<>();
+        for (int i = 0; i < colorNames.length; i++) {
+            colors.put(colorNames[i], colorCodes[i]);
+        }
+
         for (int i = 0; i < numPlayers; i++) {
+            String[] hello = colors.keySet().toArray(new String[0]);
             String name = this.gui.getUserString("Player " + (i+1) + ", please enter you name: ", 2, 12, true);
             System.out.println(name);
+            String color = this.gui.getUserSelection("Please choose a color", hello);
             this.players.add(new Player(name,1000, 0, false));
+            System.out.println(Color.getColor(color));
+            players.get(i).getCar().setPrimaryColor(colors.get(color));
+            colors.remove(color);
         }
+
         this.gui.getUserButtonPressed("Are you ready, " + this.players.get(0).name + "?", "Start");
         for (Player player:this.players) {
             this.gui.addPlayer(player);

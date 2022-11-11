@@ -4,6 +4,7 @@ package monopoly;
 import gui_fields.*;
 import gui_main.GUI;
 import monopoly.fieldspaces.FieldSpace;
+import monopoly.fieldspaces.Property;
 
 import java.awt.*;
 import java.io.File;
@@ -16,12 +17,12 @@ public class Board {
     public static int numFields = 24;
     String[][] fieldList;
 
-    FieldSpace fieldSpaces;
+    Property[] properties;
     int startBonus;
 
     public Board() {
         this.fieldList = new String[numFields][4];
-        this.fieldSpaces = new FieldSpace();
+        this.properties = new Property[numFields];
         this.startBonus = 2;
     }
 
@@ -87,11 +88,11 @@ public class Board {
                 fields[i] = new GUI_Chance("?", "Chance", "Field", Color.BLUE, Color.RED);
             } else {
                 fields[i] = new GUI_Street(fieldList[i][0], fieldList[i][1], fieldList[i][2], fieldList[i][3], Color.BLUE, Color.RED);
+                this.properties[i] = new Property(fieldList[i][0], fieldList[i][1], fieldList[i][2], fieldList[i][3]);
             }
         }
         return fields;
     }
-
     public String getField(int position) {
         return fieldList[position][0];
     }
@@ -144,6 +145,9 @@ public class Board {
             String choice = gui.getUserButtonPressed(field, "Buy", "Continue");
             // TODO if the player owns all the properties of the same color, they also gain an option to Build
             System.out.println(choice);
+            if (choice.equals("Buy")) {
+                this.properties[player.getPosition()].buy(player, gui);
+            }
         }
 
     }
