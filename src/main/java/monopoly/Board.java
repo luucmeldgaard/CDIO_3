@@ -123,6 +123,7 @@ public class Board {
                 gui.getUserButtonPressed("You are visiting", "Continue...");
             }
 
+
         }
         else if (field.equals("GOTOJAIL")) {
             player.setJailedStatus(true);
