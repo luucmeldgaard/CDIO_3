@@ -63,13 +63,20 @@ public class Board {
 
         GUI_Field[] fields = new GUI_Field[numFields];
 
+        boolean firstJail = false;
         for (int i = 0; i < fields.length; i++) {
             if (fieldList[i][0].equals("START")) {
                 System.out.println("START");
                 fields[i] = new GUI_Start("START", "", "Field", Color.BLUE, Color.RED);
-            } else if (fieldList[i][0].equals("JAIL")) {
+            } else if (fieldList[i][0].equals("JAIL") || fieldList[i][0].equals("GOTOJAIL")) {
                 System.out.println("JAIL");
-                fields[i] = new GUI_Jail("default", "JAIL", "", "Field", Color.BLUE, Color.RED);
+                if (!firstJail) {
+                    fields[i] = new GUI_Jail("default", "JAIL", "", "Field", Color.BLUE, Color.RED);
+                    firstJail = true;
+                }
+                else {
+                    fields[i] = new GUI_Jail("default", "GO TO JAIL", "", "Field", Color.BLUE, Color.RED);
+                }
             } else if (fieldList[i][0].equals("REFUGE")) {
                 System.out.println("REFUGE");
                 fields[i] = new GUI_Refuge("hest.png", "Antons numse", "", "Field", Color.BLUE, Color.RED);
@@ -105,15 +112,22 @@ public class Board {
                     player.addBalance(-500);
                     player.setJailedStatus(false);
                     gui.getUserButtonPressed("Alright, that works", "Continue");
-                } else {
+                }
+                else {
                     // TODO Player has lost
                     String choice = gui.getUserButtonPressed("You are broke!", "Continue...");
                     System.out.println(choice);
                 }
             }
-            else {
-                player.setJailedStatus(true);
-                String choice = gui.getUserButtonPressed("You have been bad!", "Go to Jail");
+
+        }
+        else if (field.equals("GOTOJAIL")) {
+            player.setJailedStatus(true);
+            String choice = gui.getUserButtonPressed("You have been bad!", "Go to Jail");
+            for (int i = 0; i < fieldList.length; i++) {
+                if (fieldList[i][0].equals("JAIL")) {
+                    player.setPosition(i);
+                }
             }
         }
         else if (field.equals("REFUGE")) {

@@ -16,7 +16,7 @@ Højby, 0.1 ̶M̶, Et felt som er meget flot, 0.1
 CHANCE
 Mongo Havn, 4.2 ̶M̶, Et felt som er meget flot, 4.2
 Mango Syd, 3.7 ̶M̶, Et felt som er meget flot, 3.7
-JAIL
+GOTOJAIL
 Davs Parken, 2.7 ̶M̶, Et felt som er meget flot, 2.7
 Lemurbugten, 3.1 ̶M̶, Et felt som er meget flot, 3.1
 CHANCE
