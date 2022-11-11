@@ -142,12 +142,8 @@ public class Board {
             System.out.println(choice);
         }
         else {
-            String choice = gui.getUserButtonPressed(field, "Buy", "Continue");
+            this.properties[player.getPosition()].landOn(player, gui, field);
             // TODO if the player owns all the properties of the same color, they also gain an option to Build
-            System.out.println(choice);
-            if (choice.equals("Buy")) {
-                this.properties[player.getPosition()].buy(player, gui);
-            }
         }
 
     }
