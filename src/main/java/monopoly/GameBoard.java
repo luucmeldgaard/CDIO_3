@@ -24,6 +24,7 @@ public class GameBoard {
 
         int numPlayers = Integer.parseInt(this.gui.getUserSelection("Number of players", "2", "3", "4"));
 
+        //ArrayList<String> nameList = new ArrayList<String>();
 
         String[] colorNames = new String[] {"Red", "Blue", "Green", "Pink"};
         Color[] colorCodes = new Color[] {Color.RED, Color.BLUE, Color.GREEN, Color.MAGENTA};
