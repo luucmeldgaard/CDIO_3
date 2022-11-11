@@ -21,7 +21,7 @@ public class Property extends FieldSpace {
         if (player.getBalance() >= this.rent)
             if (purchase.equals("Yes")) {
                 player.addBalance(-this.rent);
-                player.getCar().getPosition().setForeGroundColor(player.getPrimaryColor());
+                player.getCar().getPosition().setBackGroundColor(player.getPrimaryColor());
             }
         else {
             gui.getUserButtonPressed("You have insufficient funds to purchase this property", "Continue...");

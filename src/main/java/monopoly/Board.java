@@ -70,24 +70,24 @@ public class Board {
         for (int i = 0; i < fields.length; i++) {
             if (fieldList[i][0].equals("START")) {
                 System.out.println("START");
-                fields[i] = new GUI_Start("START", "", "Field", Color.BLUE, Color.RED);
+                fields[i] = new GUI_Start("START", "", "Field", Color.LIGHT_GRAY, Color.red);
             } else if (fieldList[i][0].equals("JAIL") || fieldList[i][0].equals("GOTOJAIL")) {
                 System.out.println("JAIL");
                 if (!firstJail) {
-                    fields[i] = new GUI_Jail("default", "JAIL", "", "Field", Color.BLUE, Color.RED);
+                    fields[i] = new GUI_Jail("default", "JAIL", "", "Field", Color.GRAY, Color.WHITE);
                     firstJail = true;
                 }
                 else {
-                    fields[i] = new GUI_Jail("default", "GO TO JAIL", "", "Field", Color.BLUE, Color.RED);
+                    fields[i] = new GUI_Jail("default", "GO TO JAIL", "", "Field", Color.GRAY, Color.WHITE);
                 }
             } else if (fieldList[i][0].equals("REFUGE")) {
                 System.out.println("REFUGE");
-                fields[i] = new GUI_Refuge("hest.png", "Antons numse", "", "Field", Color.BLUE, Color.RED);
+                fields[i] = new GUI_Refuge("hest.png", "Antons numse", "", "Field", Color.GRAY, Color.WHITE);
             } else if (fieldList[i][0].equals("CHANCE")) {
                 System.out.println("CHANCE");
-                fields[i] = new GUI_Chance("?", "Chance", "Field", Color.BLUE, Color.RED);
+                fields[i] = new GUI_Chance("?", "Chance", "Field", Color.GRAY, Color.WHITE);
             } else {
-                fields[i] = new GUI_Street(fieldList[i][0], fieldList[i][1], fieldList[i][2], fieldList[i][3], Color.BLUE, Color.RED);
+                fields[i] = new GUI_Street(fieldList[i][0], fieldList[i][1], fieldList[i][2], fieldList[i][3], Color.DARK_GRAY, Color.WHITE);
                 this.properties[i] = new Property(fieldList[i][0], fieldList[i][1], fieldList[i][2], fieldList[i][3]);
             }
         }
