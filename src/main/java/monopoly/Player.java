@@ -4,7 +4,7 @@ import gui_fields.GUI_Player;
 
 public class Player extends GUI_Player {
 
-    int balance;
+    //int balance;
     int position;
     String name;
     boolean loseCondition;
@@ -13,22 +13,14 @@ public class Player extends GUI_Player {
     public Player(String name, int balance, int position, boolean lose) {
         super(name, 1000);
         this.name = name;
-        this.balance = balance;
+        //this.balance = balance;
         this.position = position;
         this.loseCondition = lose;
         this.jailed = false;
     }
 
-    public void setBalance(int balance) {
-        this.balance = balance;
-    }
-
-    public int getBalance() {
-        return this.balance;
-    }
-
     public void addBalance(int add) {
-        this.balance += add;
+        setBalance(getBalance() + add);
     }
 
     public void setPosition(int position, int add) {
