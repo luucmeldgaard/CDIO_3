@@ -119,6 +119,9 @@ public class Board {
                     System.out.println(choice);
                 }
             }
+            else {
+                gui.getUserButtonPressed("You are visiting", "Continue...");
+            }
 
         }
         else if (field.equals("GOTOJAIL")) {

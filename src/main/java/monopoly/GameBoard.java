@@ -23,7 +23,7 @@ public class GameBoard {
         this.players = new ArrayList<>();
         this.scan = new Scanner(System.in);
 
-        int numPlayers = Integer.parseInt(this.gui.getUserSelection("Number of players", "1", "2", "3", "4"));
+        int numPlayers = Integer.parseInt(this.gui.getUserSelection("Number of players", "2", "3", "4"));
 
         for (int i = 0; i < numPlayers; i++) {
             String name = this.gui.getUserString("Player " + (i+1) + ", please enter you name: ", 2, 12, true);
