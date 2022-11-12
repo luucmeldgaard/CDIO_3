@@ -98,7 +98,7 @@ public class Board {
     }
 
     public void displayFieldActions(GUI gui, Player player, String field) {
-
+        System.out.println(gui + "\n" + player + "\n" + field);
         if (field.equals("START")) {
             player.addBalance(2);
             String choice = gui.getUserButtonPressed(field + "! Your balance is now: " + player.getBalance() + " ̶M̶", "Keep Grindin'");
@@ -113,7 +113,7 @@ public class Board {
                 if (player.getBalance() >= 500) {
                     String choice = gui.getUserButtonPressed("You will never get out!", "Pay ransom");
                     player.addBalance(-500);
-                    player.setJailedStatus(false);
+                    //player.setJailedStatus(false);
                     gui.getUserButtonPressed("Alright, that works", "Continue");
                 }
                 else {
@@ -129,14 +129,14 @@ public class Board {
 
         }
         else if (field.equals("GOTOJAIL")) {
-            player.setJailedStatus(true);
+            //player.setJailedStatus(true);
             String choice = gui.getUserButtonPressed("You have been bad!", "Go to Jail");
             for (int i = 0; i < fieldList.length; i++) {
                 if (fieldList[i][0].equals("JAIL")) {
                     player.setPosition(i);
+                    }
                 }
             }
-        }
         else if (field.equals("REFUGE")) {
             String choice = gui.getUserButtonPressed(field, "Chill");
             System.out.println(choice);
@@ -144,10 +144,9 @@ public class Board {
         else {
             this.properties[player.getPosition()].landOn(player, gui, field);
             // TODO if the player owns all the properties of the same color, they also gain an option to Build
-        }
+        }*/
 
     }
-
     /*public void fieldAction(String field, String action) {
         if
     }*/

@@ -33,7 +33,7 @@ public class Property extends FieldSpace {
     }
 
     public void buy(Player player, GUI gui) {
-        String purchase = gui.getUserButtonPressed("Would you like to purchase " + this.name + " for " + this.rent + " ̶M̶?", "Yes", "No");
+        String purchase = gui.getUserButtonPressed("Purchase " + this.name + " for " + this.rent + " ̶M̶?", "Yes", "No");
         if (player.getBalance() >= this.rent)
             if (purchase.equals("Yes")) {
                 player.addBalance(-this.rent);
