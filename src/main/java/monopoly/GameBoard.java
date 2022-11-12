@@ -74,7 +74,14 @@ public class GameBoard {
                 System.out.println(player.getName() + " is at: " + this.board.getField(player.getPosition()));
                 String optionField = this.board.getField(player.getPosition());
                 System.out.println("optionField: " + optionField);
-                this.board.displayFieldActions(this.gui, player, optionField);
+                while (true) {
+                    try {
+                        this.board.displayFieldActions(this.gui, player, optionField);
+                        break;
+                    } catch (Exception e) {
+                        System.out.println("Error");
+                    }
+                }
                 update_GUI(player);
 
 

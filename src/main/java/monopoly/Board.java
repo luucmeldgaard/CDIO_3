@@ -63,7 +63,7 @@ public class Board {
         read.close();
 
         System.out.println(Arrays.deepToString(this.fieldList));
-
+        GUI.setNull_fields_allowed(false);
         GUI_Field[] fields = new GUI_Field[numFields];
 
         boolean firstJail = false;
@@ -144,7 +144,7 @@ public class Board {
         else {
             this.properties[player.getPosition()].landOn(player, gui, field);
             // TODO if the player owns all the properties of the same color, they also gain an option to Build
-        }*/
+        }
 
     }
     /*public void fieldAction(String field, String action) {
