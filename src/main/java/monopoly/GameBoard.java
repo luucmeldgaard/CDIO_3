@@ -83,11 +83,29 @@ public class GameBoard {
                     }
                 }
                 update_GUI(player);
-                
+                if (player.getBalance() < 0) {
+                    this.gui.getUserButtonPressed(player.name + " has lost the game!", "Continue...");
+                    displayWinner(players);
+                }
             }
         }
     }
-    public void update_GUI(Player player) {
+
+    private void displayWinner(ArrayList<Player> players) {
+        String winner = "";
+        int highestAmount = 0;
+        for (Player player:players) {
+            if (player.getBalance() >= highestAmount) {
+                winner = player.getName();
+                highestAmount = player.getBalance();
+            }
+            //TODO What if two players win the game?
+        }
+        this.gui.getUserButtonPressed(winner + " wins the game!", "END");
+        System.exit(0);
+
+    }
+    private void update_GUI(Player player) {
         player.getCar().setPosition(this.gui.getFields()[player.getPosition()]);
     }
 }
