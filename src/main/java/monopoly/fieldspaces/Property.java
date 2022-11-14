@@ -35,16 +35,13 @@ public class Property extends FieldSpace {
     public void buy(Player player, GUI gui) {
         System.out.println(this.name + "________________________" + this.rent);
         String purchase = gui.getUserButtonPressed("Purchase " + this.name + " for " + this.rent, "Yes", "No");
-        if (player.getBalance() >= this.rent)
-            if (purchase.equals("Yes")) {
+        if (player.getBalance() >= this.rent) {
+            if (purchase.equals("Yes") && player.getBalance() >= this.rent) {
                 player.addBalance(-this.rent);
                 player.setOwnedStatus(this.name);
                 this.owner = player;
-                player.getCar().getPosition().setBackGroundColor(player.getPrimaryColor());
-            }
-        else {
-            gui.getUserButtonPressed("You have insufficient funds to purchase this property", "Continue...");
-            }
+                player.getCar().getPosition().setBackGroundColor(player.getPrimaryColor()); }
+            else {gui.getUserButtonPressed("You have insufficient funds to purchase this property", "Continue..."); }
+        }
     }
-
 }

@@ -58,7 +58,7 @@ public class GameBoard {
             for (Player player : this.players) {
                 System.out.println("new play by " + player.getName());
                 if (!player.getJailedStatus()) {
-                    //gui.getUserButtonPressed("It's " + player.name + "'s turn", "Roll");
+                    gui.getUserButtonPressed("It's " + player.name + "'s turn", "Roll");
                     int roll = cup.roll();
                     System.out.println(roll);
                     gui.setDie(roll);
@@ -83,8 +83,7 @@ public class GameBoard {
                     }
                 }
                 update_GUI(player);
-
-
+                
             }
         }
     }
