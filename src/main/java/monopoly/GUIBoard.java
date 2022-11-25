@@ -98,7 +98,7 @@ public class GUIBoard {
         System.out.println(player + "\n" + field);
         if (field.equals("START")) {
             player.addBalance(2);
-            String choice = GuiController.gui.getUserButtonPressed(field + "! Your balance is now: " + player.getBalance() + " ̶M̶", "Keep Grindin'");
+            String choice = GuiController.gui.getUserButtonPressed(field + "! Your balance is now: " + player.getBalance() + "M", "Keep Grindin'");
             System.out.println(choice);
         }
         else if (field.equals("CHANCE")) {

@@ -50,6 +50,7 @@ public class GameBoard {
             for (Player player : this.players) {
                 System.out.println("new play by " + player.getName());
                 if (!player.getJailedStatus()) {
+                    System.out.println("Test1");
                     GuiController.gui.getUserButtonPressed("It's " + player.getName() + "'s turn", "Roll");
                     int roll = cup.roll();
                     System.out.println(roll);
@@ -65,7 +66,6 @@ public class GameBoard {
 
                 System.out.println(player.getName() + " is at: " + GuiController.fields.getField(player.getPosition()));
                 String optionField = GuiController.fields.getField(player.getPosition());
-                System.out.println("optionField: " + optionField);
                 GuiController.fields.displayFieldActions(player, optionField);
 
                 update_GUI(player);
