@@ -24,12 +24,13 @@ public class Player extends GUI_Player {
         this.properties = new ArrayList<String>();
     }
 
+
     public void addBalance(int add) {
         setBalance(getBalance() + add);
     }
 
     public void setPosition(int position, int add) {
-        this.position = (position + add) % Board.numFields;
+        this.position = (position + add) % GUIBoard.numFields;
     }
 
     public void setPosition(int position) {

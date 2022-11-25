@@ -1,9 +1,7 @@
 package monopoly;
 
-
 import gui_fields.*;
 import gui_main.GUI;
-import monopoly.fieldspaces.FieldSpace;
 import monopoly.fieldspaces.Property;
 
 import java.awt.*;
@@ -12,26 +10,24 @@ import java.io.FileNotFoundException;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Board {
+public class GUIBoard {
 
     public static int numFields = 24;
     String[][] fieldList;
-
     Property[] properties;
     int startBonus;
 
-    public Board() {
+    public GUIBoard() {
         this.fieldList = new String[numFields][4];
         this.properties = new Property[numFields];
         this.startBonus = 2;
     }
 
     public GUI_Field[] setup() {
-
         this.fieldList = new String[numFields][4];
 
         File fieldFile = new File("fields.txt");
-        Scanner read = null;
+        Scanner read;
         try {
             read = new Scanner(fieldFile);
         } catch (FileNotFoundException ex) {
@@ -93,62 +89,60 @@ public class Board {
         }
         return fields;
     }
+
     public String getField(int position) {
         return fieldList[position][0];
     }
 
-    public void displayFieldActions(GUI gui, Player player, String field) {
-        System.out.println(gui + "\n" + player + "\n" + field);
+    public void displayFieldActions(Player player, String field) {
+        System.out.println(player + "\n" + field);
         if (field.equals("START")) {
             player.addBalance(2);
-            String choice = gui.getUserButtonPressed(field + "! Your balance is now: " + player.getBalance() + " ̶M̶", "Keep Grindin'");
+            String choice = GuiController.gui.getUserButtonPressed(field + "! Your balance is now: " + player.getBalance() + " ̶M̶", "Keep Grindin'");
             System.out.println(choice);
         }
         else if (field.equals("CHANCE")) {
-            String choice = gui.getUserButtonPressed(field, "Pick card");
+            String choice = GuiController.gui.getUserButtonPressed(field, "Pick card");
             System.out.println(choice);
         }
         else if (field.equals("JAIL")) {
             if (player.getJailedStatus()) {
                 if (player.getBalance() >= 500) {
-                    String choice = gui.getUserButtonPressed("You will never get out!", "Pay ransom");
+                    String choice = GuiController.gui.getUserButtonPressed("You will never get out!", "Pay ransom");
                     player.addBalance(-500);
                     //player.setJailedStatus(false);
-                    gui.getUserButtonPressed("Alright, that works", "Continue");
+                    GuiController.gui.getUserButtonPressed("Alright, that works", "Continue");
                 }
                 else {
                     // TODO Player has lost
-                    String choice = gui.getUserButtonPressed("You are broke!", "Continue...");
+                    String choice = GuiController.gui.getUserButtonPressed("You are broke!", "Continue...");
                     System.out.println(choice);
                 }
             }
             else {
-                gui.getUserButtonPressed("You are visiting", "Continue...");
+                GuiController.gui.getUserButtonPressed("You are visiting", "Continue...");
             }
 
 
         }
         else if (field.equals("GOTOJAIL")) {
             //player.setJailedStatus(true);
-            String choice = gui.getUserButtonPressed("You have been bad!", "Go to Jail");
+            String choice = GuiController.gui.getUserButtonPressed("You have been bad!", "Go to Jail");
             for (int i = 0; i < fieldList.length; i++) {
                 if (fieldList[i][0].equals("JAIL")) {
                     player.setPosition(i);
-                    }
                 }
             }
+        }
         else if (field.equals("REFUGE")) {
-            String choice = gui.getUserButtonPressed(field, "Chill");
+            String choice = GuiController.gui.getUserButtonPressed(field, "Chill");
             System.out.println(choice);
         }
         else {
-            this.properties[player.getPosition()].landOn(player, gui, field);
+            this.properties[player.getPosition()].landOn(player, field);
             // TODO if the player owns all the properties of the same color, they also gain an option to Build
         }
 
     }
-    /*public void fieldAction(String field, String action) {
-        if
-    }*/
 
 }
