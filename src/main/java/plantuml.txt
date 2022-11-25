@@ -1,0 +1,103 @@
+DOMAIN MODEL
+
+@startuml
+class Player {
+position
+name
+loseCondition
+jailedStatus
+properties
+--
+addBalance
+}
+
+class Die {
+--
+roll
+}
+
+class DiceCup {
+sides
+number of dies
+--
+roll
+}
+
+class GUIController{
+GUI
+GUI Board
+--
+GUI Controller
+button Request
+}
+
+class GUIBoard {
+number of fields
+properties
+start bonus
+__
+setup
+get field
+display field-actions
+}
+
+class Property {
+name
+title
+subtext
+rent
+owner
+__
+land on
+buy
+}
+
+class GameBoard {
+players
+__
+play game
+play condition
+display winner
+update GUI
+}
+
+Play -- GUIController
+GUIController - GUIBoard
+Play -- GameBoard
+GameBoard - DiceCup
+DiceCup -- Die
+Player - GameBoard
+GUIBoard - FieldSpace
+FieldSpace ..> Property
+@enduml
+
+-----------------------------------
+
+SEQUENCE DIAGRAM (PLAYERS - SYSTEM)
+
+
+@startuml
+
+players -> System: Initialize (start) game
+players <-- System: Asks for amount of players (2-4)
+
+loop for player
+players <-- System: Asks player for name
+players -> System: player's name
+players <-- System: Asks player for color
+players -> System: player's color
+end
+
+loop for player
+players <-- System: prompts to roll die
+players -> System: current player rolls die
+players <-- System: displays die
+players <-- System: moves player on board
+players <-- System: returns actions
+players -> System: Player chooses an action
+alt negative player balance
+players <-- System: returns a winner
+
+end
+
+@enduml

@@ -4,7 +4,6 @@ import gui_main.GUI;
 
 public class GuiController {
 
-    //Board board = new Board();
     public static GUI gui;
     static GUIBoard fields;
 

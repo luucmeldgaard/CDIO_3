@@ -13,8 +13,8 @@ public class Property extends FieldSpace {
     Player owner;
     public Property(String name, String subText, String tilte, String rent) {
         this.name = name;
-        this.subText = subText;
         this.title = tilte;
+        this.subText = subText;
         this.rent = Integer.parseInt(rent);
         this.owner = null;
     }

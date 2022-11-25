@@ -2,7 +2,7 @@ START
 Ringormen, 1 ̶M̶, Et felt som er meget flot, 100
 Lars Tyndskid, 0.8 ̶M̶, Et felt som er meget flot, 80
 CHANCE
-Knasten, 1.5 ̶M̶, Et felt som er meget flot, 150
+Jammerklangen, 1.5 ̶M̶, Et felt som er meget flot, 150
 Minkmøllen, 2 ̶M̶, Et felt som er meget flot, 200
 JAIL
 Johnholm, 0.5 ̶M̶, Et felt som er meget flot, 50
