@@ -13,4 +13,9 @@ public class GuiController {
         gui = new GUI(fields.setup());
     }
 
+    protected static String buttonRequest(String c){
+        return gui.getUserButtonPressed("Number of players", "2", "3", c);
+    }
+
+
 }
