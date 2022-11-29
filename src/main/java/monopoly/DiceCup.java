@@ -9,7 +9,7 @@ public class DiceCup {
 
     public int roll() {
         Die die = new Die();
-        ArrayList<Integer> dies = new ArrayList<Integer>();
+        ArrayList<Integer> dies = new ArrayList<>();
         for (int i = 0; i < numDies; i++) {
             dies.add(die.roll(sides));
         }

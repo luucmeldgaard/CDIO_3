@@ -64,27 +64,32 @@ public class GUIBoard {
 
         boolean firstJail = false;
         for (int i = 0; i < fields.length; i++) {
-            if (fieldList[i][0].equals("START")) {
-                System.out.println("START");
-                fields[i] = new GUI_Start("START", "", "Field", Color.LIGHT_GRAY, Color.red);
-            } else if (fieldList[i][0].equals("JAIL") || fieldList[i][0].equals("GOTOJAIL")) {
-                System.out.println("JAIL");
-                if (!firstJail) {
-                    fields[i] = new GUI_Jail("default", "JAIL", "", "Field", Color.GRAY, Color.WHITE);
-                    firstJail = true;
+            switch (fieldList[i][0]) {
+                case "START" -> {
+                    System.out.println("START");
+                    fields[i] = new GUI_Start("START", "", "Field", Color.LIGHT_GRAY, Color.red);
                 }
-                else {
-                    fields[i] = new GUI_Jail("default", "GO TO JAIL", "", "Field", Color.GRAY, Color.WHITE);
+                case "JAIL", "GOTOJAIL" -> {
+                    System.out.println("JAIL");
+                    if (!firstJail) {
+                        fields[i] = new GUI_Jail("default", "JAIL", "", "Field", Color.GRAY, Color.WHITE);
+                        firstJail = true;
+                    } else {
+                        fields[i] = new GUI_Jail("default", "GO TO JAIL", "", "Field", Color.GRAY, Color.WHITE);
+                    }
                 }
-            } else if (fieldList[i][0].equals("REFUGE")) {
-                System.out.println("REFUGE");
-                fields[i] = new GUI_Refuge("hest.png", "Antons numse", "", "Field", Color.GRAY, Color.WHITE);
-            } else if (fieldList[i][0].equals("CHANCE")) {
-                System.out.println("CHANCE");
-                fields[i] = new GUI_Chance("?", "Chance", "Field", Color.GRAY, Color.WHITE);
-            } else {
-                fields[i] = new GUI_Street(fieldList[i][0], fieldList[i][1], fieldList[i][2], fieldList[i][3], Color.DARK_GRAY, Color.WHITE);
-                this.properties[i] = new Property(fieldList[i][0], fieldList[i][1], fieldList[i][2], fieldList[i][3]);
+                case "REFUGE" -> {
+                    System.out.println("REFUGE");
+                    fields[i] = new GUI_Refuge("hest.png", "Antons numse", "", "Field", Color.GRAY, Color.WHITE);
+                }
+                case "CHANCE" -> {
+                    System.out.println("CHANCE");
+                    fields[i] = new GUI_Chance("?", "Chance", "Field", Color.GRAY, Color.WHITE);
+                }
+                default -> {
+                    fields[i] = new GUI_Street(fieldList[i][0], fieldList[i][1], fieldList[i][2], fieldList[i][3], Color.DARK_GRAY, Color.WHITE);
+                    this.properties[i] = new Property(fieldList[i][0], fieldList[i][1], fieldList[i][2], fieldList[i][3]);
+                }
             }
         }
         return fields;
@@ -96,51 +101,56 @@ public class GUIBoard {
 
     public void displayFieldActions(Player player, String field) {
         System.out.println(player + "\n" + field);
-        if (field.equals("START")) {
-            player.addBalance(2);
-            String choice = GuiController.gui.getUserButtonPressed(field + "! Your balance is now: " + player.getBalance() + "M", "Keep Grindin'");
-            System.out.println(choice);
-        }
-        else if (field.equals("CHANCE")) {
-            String choice = GuiController.gui.getUserButtonPressed(field, "Pick card");
-            System.out.println(choice);
-        }
-        else if (field.equals("JAIL")) {
-            if (player.getJailedStatus()) {
-                if (player.getBalance() >= 500) {
-                    String choice = GuiController.gui.getUserButtonPressed("You will never get out!", "Pay ransom");
-                    player.addBalance(-500);
-                    //player.setJailedStatus(false);
-                    GuiController.gui.getUserButtonPressed("Alright, that works", "Continue");
-                }
-                else {
-                    // TODO Player has lost
-                    String choice = GuiController.gui.getUserButtonPressed("You are broke!", "Continue...");
-                    System.out.println(choice);
-                }
+        switch (field) {
+            case "START": {
+                player.addBalance(2);
+                String choice = GuiController.gui.getUserButtonPressed(field + "! Your balance is now: " + player.getBalance() + "M", "Keep Grindin'");
+                System.out.println(choice);
+                break;
             }
-            else {
-                GuiController.gui.getUserButtonPressed("You are visiting", "Continue...");
+            case "CHANCE": {
+                String choice = GuiController.gui.getUserButtonPressed(field, "Pick card");
+                System.out.println(choice);
+                break;
             }
+            case "JAIL":
+                if (player.getJailedStatus()) {
+                    if (player.getBalance() >= 500) {
+                        GuiController.gui.getUserButtonPressed("You will never get out!", "Pay ransom");
+                        player.addBalance(-500);
+                        player.setJailedStatus(false);
+                        GuiController.gui.getUserButtonPressed("Alright, that works", "Continue");
+                    } else {
+                        // TODO Player has lost
+                        String choice = GuiController.gui.getUserButtonPressed("You are broke!", "Continue...");
+                        System.out.println(choice);
+                    }
+                } else {
+                    GuiController.gui.getUserButtonPressed("You are visiting", "Continue...");
+                }
 
 
-        }
-        else if (field.equals("GOTOJAIL")) {
-            //player.setJailedStatus(true);
-            String choice = GuiController.gui.getUserButtonPressed("You have been bad!", "Go to Jail");
-            for (int i = 0; i < fieldList.length; i++) {
-                if (fieldList[i][0].equals("JAIL")) {
-                    player.setPosition(i);
+                break;
+            case "GOTOJAIL": {
+                //player.setJailedStatus(true);
+                GuiController.gui.getUserButtonPressed("You have been bad!", "Go to Jail");
+                for (int i = 0; i < fieldList.length; i++) {
+                    if (fieldList[i][0].equals("JAIL")) {
+                        player.setPosition(i);
+                    }
+                    player.setJailedStatus(true);
                 }
+                break;
             }
-        }
-        else if (field.equals("REFUGE")) {
-            String choice = GuiController.gui.getUserButtonPressed(field, "Chill");
-            System.out.println(choice);
-        }
-        else {
-            this.properties[player.getPosition()].landOn(player, field);
-            // TODO if the player owns all the properties of the same color, they also gain an option to Build
+            case "REFUGE": {
+                String choice = GuiController.gui.getUserButtonPressed(field, "Chill");
+                System.out.println(choice);
+                break;
+            }
+            default:
+                this.properties[player.getPosition()].landOn(player, field);
+                // TODO if the player owns all the properties of the same color, they also gain an option to Build
+                break;
         }
 
     }

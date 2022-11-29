@@ -1,6 +1,5 @@
 package monopoly.fieldspaces;
 
-import gui_main.GUI;
 import monopoly.GuiController;
 import monopoly.Player;
 

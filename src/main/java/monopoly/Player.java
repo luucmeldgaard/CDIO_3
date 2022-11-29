@@ -4,16 +4,14 @@ import gui_fields.GUI_Player;
 
 public class Player extends GUI_Player {
 
-    //int balance;
     int position;
     String name;
     boolean loseCondition;
     boolean jailed;
 
-    public Player(String name, int balance, int position, boolean lose) {
+    public Player(String name, int position, boolean lose) {
         super(name, 1000);
         this.name = name;
-        //this.balance = balance;
         this.position = position;
         this.loseCondition = lose;
         this.jailed = false;

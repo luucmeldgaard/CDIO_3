@@ -13,9 +13,4 @@ public class GuiController {
         gui = new GUI(fields.setup());
     }
 
-    protected static String buttonRequest(String msg, String a, String b, String c){
-        return gui.getUserButtonPressed(msg, a, b, c);
-    }
-
-
 }

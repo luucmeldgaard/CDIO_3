@@ -12,7 +12,7 @@ public class GameBoard {
 
         players = new ArrayList<>();
 
-        int numPlayers = Integer.parseInt(GuiController.buttonRequest("Number of players", "2", "3", "4"));
+        int numPlayers = Integer.parseInt(GuiController.buttonRequest("4"));
 
         //ArrayList<String> nameList = new ArrayList<String>();
 
@@ -29,7 +29,7 @@ public class GameBoard {
             String name = GuiController.gui.getUserString("Player " + (i+1) + ", please enter you name: ", 2, 12, true);
             System.out.println(name);
             String color = GuiController.gui.getUserSelection("Please choose a color", hello);
-            players.add(new Player(name,1000, 0, false));
+            players.add(new Player(name, 0, false));
             System.out.println(Color.getColor(color));
             players.get(i).getCar().setPrimaryColor(colors.get(color));
             colors.remove(color);
