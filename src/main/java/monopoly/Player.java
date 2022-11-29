@@ -2,9 +2,6 @@ package monopoly;
 
 import gui_fields.GUI_Player;
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Player extends GUI_Player {
 
     //int balance;
@@ -12,7 +9,6 @@ public class Player extends GUI_Player {
     String name;
     boolean loseCondition;
     boolean jailed;
-    ArrayList<String> properties;
 
     public Player(String name, int balance, int position, boolean lose) {
         super(name, 1000);
@@ -21,7 +17,6 @@ public class Player extends GUI_Player {
         this.position = position;
         this.loseCondition = lose;
         this.jailed = false;
-        this.properties = new ArrayList<String>();
     }
 
 
@@ -46,13 +41,5 @@ public class Player extends GUI_Player {
     }
     public void setJailedStatus(boolean status) {
         this.jailed = status;
-    }
-
-    public boolean getOwnedStatus(String propertyName) {
-        return this.properties.contains(propertyName);
-    }
-
-    public void setOwnedStatus(String propertyName) {
-        this.properties.add(propertyName);
     }
 }

@@ -21,8 +21,10 @@ public class Property extends FieldSpace {
 
     public void landOn(Player player, String field) {
         if (this.owner != null) {
+            System.out.println("Owner name: " + this.owner.getName());
+            System.out.println(!this.owner.getName().equals(player.getName()));
             if (!this.owner.getName().equals(player.getName())) {
-                String payToPlayer = GuiController.gui.getUserButtonPressed("this field is owned by " + this.owner.getName() + ". Pay " + this.rent + "for your stay!");
+                GuiController.gui.getUserButtonPressed("this field is owned by " + this.owner.getName() + ". Pay " + this.rent + " for your stay!", "Pay " + this.owner.getName());
                 player.addBalance(-this.rent);
                 this.owner.addBalance(this.rent);
             }
@@ -34,12 +36,10 @@ public class Property extends FieldSpace {
     }
 
     public void buy(Player player) {
-        System.out.println(this.name + "________________________" + this.rent);
         String purchase = GuiController.gui.getUserButtonPressed("Purchase " + this.name + " for " + this.rent, "Yes", "No");
         if (player.getBalance() >= this.rent) {
             if (purchase.equals("Yes") && player.getBalance() >= this.rent) {
                 player.addBalance(-this.rent);
-                player.setOwnedStatus(this.name);
                 this.owner = player;
                 player.getCar().getPosition().setBackGroundColor(player.getPrimaryColor()); }
             else {GuiController.gui.getUserButtonPressed("You have insufficient funds to purchase this property", "Continue..."); }
